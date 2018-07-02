@@ -1,9 +1,0 @@
-
-https://login.microsoftonline.com/bbd.co.za/oauth2/v2.0/authorize?
-client_id=476ba8bc-a7e1-4c89-ab55-c9f4c147e5e4
-&response_type=id_token+token
-&redirect_uri=http%3A%2F%2F127.0.0.1%3A4200
-&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
-&response_mode=fragment
-&state=12345
-&nonce=678910
