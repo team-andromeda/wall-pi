@@ -2,6 +2,13 @@
 
 Configuration: `src/app/active-directory.service.ts`
 
+Config Variables:
+    - Application ID
+    - Reply URL
+    - Room names
+
+If deployed using Docker these can be configured using Env vars.
+
 --
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
