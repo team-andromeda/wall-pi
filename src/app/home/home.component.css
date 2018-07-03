@@ -1,0 +1,45 @@
+fullwidth {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th {
+  padding: 5px;
+  text-align: center;
+  color: Black;
+}
+td {
+  padding: 5px;
+  text-align: left;
+  color: Black;
+}
+tr:nth-child(even) {
+  background-color: #ffb5ac;
+}
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+h2 {
+  font-family: Engravers MT;
+  font-weight: bold;
+  font-size: 30px;
+  width: 400px;
+  margin-bottom: 5px;
+  padding-left: 50px;
+  line-height: 2;
+  position: relative;
+  color: White;
+}
+caption {
+  font-weight: bold;
+  font-size: 25px;
+}
+select {
+  position: relative;
+  width: 250px;
+}
