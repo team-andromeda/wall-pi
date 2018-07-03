@@ -1,0 +1,9 @@
+version: '3.2'
+
+services:
+  wall-pi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
