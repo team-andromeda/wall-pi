@@ -18,7 +18,8 @@ export class ActiveDirectoryService {
     response_type: 'id_token+token',
     redirect_uri: 'http://127.0.0.1:4200/callback',
     scope:
-      'openid https://graph.microsoft.com/Calendars.Read ' +
+      'openid ' +
+      'https://graph.microsoft.com/Calendars.Read ' +
       'https://graph.microsoft.com/User.Read ' +
       'https://graph.microsoft.com/Calendars.Read.Shared',
     response_mode: 'fragment',
