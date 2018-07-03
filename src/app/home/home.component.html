@@ -420,8 +420,12 @@
       document.getElementById("fiT").innerHTML = EndTime+" "+duration;
       
       for (g=startValue+1; g < startValue+duration ;g++){
-        document.getElementById("siT").innerHTML =g;
+        
         switch (g){
+          case -1:document.getElementById("sixT").innerHTML = "booked";
+              break;
+          case 0:document.getElementById("se").innerHTML = "booked";
+              break;
           case 1:document.getElementById("seT").innerHTML = "booked";
               break;
           case 2:document.getElementById("ei").innerHTML = "booked";
