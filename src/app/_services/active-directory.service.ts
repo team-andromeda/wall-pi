@@ -4,6 +4,8 @@ import { AuthOptions } from '../_models/auth-options.model';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+import { ConfigService } from './config.service';
+import { Config } from '../_models/config.model';
 
 const jwtKeyId = 'jwt';
 
@@ -11,6 +13,8 @@ const jwtKeyId = 'jwt';
   providedIn: 'root',
 })
 export class ActiveDirectoryService {
+  config: Config = null;
+
   // TODO(egeldenhuys): Implement nonce and state params for security
   authOptions: AuthOptions = {
     url: 'https://login.microsoftonline.com/bbd.co.za/oauth2/v2.0/authorize',
@@ -27,11 +31,28 @@ export class ActiveDirectoryService {
     state: 'TODO',
   };
 
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private configService: ConfigService
+  ) {
+    this.config = this.configService.getConfig();
+  }
   /**
    * Redirect the browser to Microsoft for authentication
    */
   authenticateRedirect() {
+    if (this.config === null) {
+      // This could be after a refresh
+      this.config = this.configService.getConfig();
+      if (this.config === null) {
+        console.error(
+          'Not redirecting as config has not been set. Waiting for auto refresh'
+        );
+        return;
+      }
+    }
+
     console.warn('Redirecting to external site for authentication...');
 
     // NOTE: an automated solution can be to redirect the window when the token has expired.
@@ -47,13 +68,13 @@ export class ActiveDirectoryService {
 
   buildRequestUrl(options: AuthOptions): string {
     return (
-      options.url +
+      this.config.authOptions.url +
       '?client_id=' +
-      options.client_id +
+      this.config.authOptions.client_id +
       '&response_type=' +
       options.response_type +
       '&redirect_uri=' +
-      encodeURI(options.redirect_uri) +
+      encodeURI(this.config.authOptions.redirect_uri) +
       '&scope=' +
       encodeURI(options.scope) +
       '&response_mode=' +
@@ -73,9 +94,42 @@ export class ActiveDirectoryService {
       });
   }
 
+  formatDate(dateObj: Date): string {
+    const dd = dateObj.getDate();
+    const mm = dateObj.getMonth() + 1;
+    const yyyy = dateObj.getFullYear();
+
+    let ddStr = dd.toString();
+    if (dd < 10) {
+      ddStr = '0' + ddStr;
+    }
+
+    let mmStr = mm.toString();
+    if (mm < 10) {
+      mmStr = '0' + mmStr;
+    }
+
+    const yyyyStr = yyyy.toString();
+
+    return yyyyStr + '-' + mmStr + '-' + ddStr;
+  }
+
+
   getCalendar(user: string) {
+    // Source: https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
+
+    const today = new Date();
+    const futureDate = new Date(today.getTime() + (1000 * 60 * 60 * 24)); // + 1 day in ms
+
+    const todayStr = this.formatDate(today);
+    const futureDateStr = this.formatDate(futureDate);
+
+    console.log(todayStr);
     return this.httpClient.get(
-      'https://graph.microsoft.com/v1.0/users/' + user + '@bbd.co.za/calendar/events'
+      'https://graph.microsoft.com/v1.0/users/' +
+        user +
+        '@bbd.co.za/calendar/events?$filter=start/dateTime ge \'' +
+        todayStr + 'T00:00\' and start/dateTime le \'' + futureDateStr + 'T00:00\''
     );
   }
 

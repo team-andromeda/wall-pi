@@ -1,8 +1,8 @@
 {
     "authOptions": {
         "url": "https://login.microsoftonline.com/bbd.co.za/oauth2/v2.0/authorize",
-        "client_id": "476ba8bc-a7e1-4c89-ab55-c9f4c147e5e4",
-        "redirect_uri": "http://127.0.0.1:4200/callback"
+        "client_id": "4587cd34-d986-40bb-9588-a2a8a4f4a488",
+        "redirect_uri": "https://team-andromeda.github.io/wall-pi/callback" 
     },
     "rooms": [
         {

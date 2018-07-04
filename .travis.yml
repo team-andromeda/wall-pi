@@ -15,11 +15,7 @@ before_script:
 script:
   - ng build --base-href=/wall-pi/ --prod --no-progress
   - cp dist/wall-pi/index.html dist/wall-pi/404.html
-
-notifications:
-  email:
-    on_success: never # default: change
-    on_failure: always # default: always
+  - mv -f dist/wall-pi/assets/config-live dist/wall-pi/assets/config # Enable live config
 
 deploy:
   provider: pages
