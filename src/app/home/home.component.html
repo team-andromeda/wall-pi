@@ -1,8 +1,21 @@
-<div class="bg">
+<div class="bg " style ="background-color:rgb(50,50,60)"> 
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style ="height:100%;color: rgb(50,50,60);" >
-        <a class="navbar-brand" href="#">BBD</a>
+<nav class="navbar navbar-dark bg-dark" style ="height:100%;color: rgb(50,50,60);" >
+   
+        <a class="navbar-brand" href="#">
+                <form class="form-inline">
+                <img src="assets/favicon.png" alt ="picture not found" width="45" height="45" class="d-inline-block align-top" alt=""> 
+                        <span id ="details" class="navbar-text" style ="font-size:120%;color:white">
+                                Navbar
+                        </span>
+                                        <a class="nav-item nav-link" href="#" style = "align-self: right;font-weight:bold;font-size: 120%;color:rgb(200,0,0)" (click)="logout()" align ="right">Logout</a>
+                                
+   
+                        </form>
+        </a>
+
+                          
 
 </nav>
   
@@ -174,10 +187,14 @@
     </tr>
   </table>
 
-  <div align="right">
-    <button type="button" id="loginButton" class="btn secondary" (click)="logout()">Logout</button>
-    <button type="button" class="btn btn-secondary" routerLink="/configPage">Configure</button>
+  <div align="centre">
+        <button type="button" class="btn btn-secondary" routerLink="/configPage">configure
+        
+        </button>
+    
   </div>
+       
+  
 
 
 </div>

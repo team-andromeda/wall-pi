@@ -4,7 +4,7 @@ table {
     border-radius:6px;
     -moz-border-radius:6px;
    
-    width: 200px;
+    width: 100%;
 
 }
 
@@ -30,7 +30,7 @@ td:first-child, th:first-child {
 
 td {
   padding: 5px;
-  text-align: left;
+  text-align: center;
   color:white; 
   font-size:100%;
   font-weight: normal ;
@@ -72,9 +72,7 @@ select {
   width: 250px;
 }
 button{
-  margin-top: 2rem;
-  margin-right: 5rem;
-  margin-bottom: 1rem;
+
   color:white;
   background-color:  rgb(200,0,0);
 }
