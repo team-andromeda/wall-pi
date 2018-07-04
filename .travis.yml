@@ -1,0 +1,31 @@
+language: node_js
+
+dist: trusty
+
+node_js:
+   - node
+
+cache:
+  directories:
+    - "node_modules"
+
+before_script:
+  - npm install -g --silent @angular/cli
+
+script:
+  - ng build --base-href=/wall-pi/ --prod --no-progress
+  - cp dist/wall-pi/index.html dist/wall-pi/404.html
+
+notifications:
+  email:
+    on_success: never # default: change
+    on_failure: always # default: always
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: pages
+  local-dir: dist/wall-pi
