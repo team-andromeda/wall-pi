@@ -3,6 +3,8 @@ import { Config } from '../_models/config.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+const configPath = 'assets/config';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -38,7 +40,7 @@ export class ConfigService {
    * Downloads the config file
    */
   public fetchConfig() {
-    this.http.get('/assets/config', { responseType: 'json' }).subscribe(
+    this.http.get(configPath, { responseType: 'json' }).subscribe(
       (data: Config) => {
         if (localStorage.getItem('config') === null) {
           // "Reload" the active path to enable the new config
@@ -81,7 +83,7 @@ export class ConfigService {
             'ConfigurationService::fetchAPIHostname(): Suppressed "TypeError: _this.handler.handle is not a function"'
           );
         } else {
-          console.error('Error loading /config');
+          console.error('Error loading ' + configPath);
           console.error(error);
         }
       }

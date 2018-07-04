@@ -2,6 +2,21 @@
     "authOptions": {
         "url": "https://login.microsoftonline.com/bbd.co.za/oauth2/v2.0/authorize",
         "client_id": "476ba8bc-a7e1-4c89-ab55-c9f4c147e5e4",
-        "redirect_uri": "http://127.0.0.1:4200/callback" 
-    }
+        "redirect_uri": "http://127.0.0.1:4200/callback"
+    },
+    "rooms": [
+        {
+            "id": "assembly",
+            "locations": [
+                {
+                    "name": "JHB",
+                    "locationString": "Assembly - VC"
+                },
+                {
+                    "name": "PTA",
+                    "locationString": "Assembly - VC PTA"
+                }
+            ]
+        }
+    ]
 }
