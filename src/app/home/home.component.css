@@ -1,0 +1,72 @@
+
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 5px;
+  text-align: left;
+  color: Black;
+}
+tr:nth-child(even) {
+  background-color: rgb(216, 214, 214);
+}
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+h2  {
+  font-family: Engravers MT;
+  font-weight: bold;
+  font-size: 30px;
+  width: 400px;
+  padding-left: 50px;
+  line-height: 2;
+  position: relative;
+  color: #b30e0e;
+}
+h1{  
+  font-family: Engravers MT;
+  font-weight: bold;
+  font-size: 30px;
+  width: 400px;
+  margin-bottom: 5px;
+  padding-left: 100px;
+  line-height: 2;
+  position: relative;
+  color: #b30e0e;
+
+}
+caption {
+  font-weight: bold;
+  font-size: 25px;
+}
+select {
+  position: relative;
+  width: 250px;
+}
+button{
+  margin-top: 1rem;
+  margin-right: 5rem;
+  margin-bottom: 1rem;
+  color:white;
+  background-color:  #b30e0e;
+}
+table{
+  width: 100%;
+}
+th {
+  font-family: Lato-Bold;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+  padding: 5px;
+  text-align: center;
+  background-color: #b30e0e;
+}
+image{
+  padding-top: 10rem
+}
