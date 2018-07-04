@@ -15,7 +15,7 @@ before_script:
 script:
   - ng build --base-href=/wall-pi/ --prod --no-progress
   - cp dist/wall-pi/index.html dist/wall-pi/404.html
-  - mv -f dist/wall-pi/config-live dist/wall-pi/config # Enable live config
+  - mv -f dist/wall-pi/assets/config-live dist/wall-pi/assets/config # Enable live config
 
 deploy:
   provider: pages
