@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { ActiveDirectoryService } from './active-directory.service';
+import { ActiveDirectoryService } from '../_services/active-directory.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 const jwtKeyId = 'jwt';

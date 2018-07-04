@@ -1,4 +1,3 @@
-// Should be named AuthOptions
 export interface AuthOptions {
     url: string;
     client_id: string;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActiveDirectoryService } from '../active-directory.service';
+import { ActiveDirectoryService } from '../_services/active-directory.service';
 
 @Component({
   selector: 'app-home',
