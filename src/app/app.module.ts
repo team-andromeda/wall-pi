@@ -12,13 +12,14 @@ import { LoginComponent } from './login/login.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ConfigComponent } from './config/config.component';
+import { RefreshComponent } from './refresh/refresh.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
 }
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CallbackComponent, LoginComponent, ConfigComponent],
+  declarations: [AppComponent, HomeComponent, CallbackComponent, LoginComponent, ConfigComponent, RefreshComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

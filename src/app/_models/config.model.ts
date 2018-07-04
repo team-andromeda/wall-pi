@@ -5,4 +5,3 @@ export interface Config {
         redirect_uri: string;
     };
 }
-

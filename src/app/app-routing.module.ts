@@ -6,6 +6,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { CallbackComponent } from './callback/callback.component';
 import { LoginComponent } from './login/login.component';
 import { ConfigComponent } from './config/config.component';
+import { RefreshComponent } from './refresh/refresh.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
   { path: 'callback', component: CallbackComponent},
   { path: 'configPage', component: ConfigComponent, canActivate: [AuthGuard]},
+  { path: 'refresh', component: RefreshComponent},
   { path: '**', redirectTo: 'home'},
 
 ];
