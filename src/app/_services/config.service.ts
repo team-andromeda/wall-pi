@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Config } from '../_models/config.model';
+import { Config, Room, Location } from '../_models/config.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
