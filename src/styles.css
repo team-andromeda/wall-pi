@@ -7,24 +7,18 @@
 /*# sourceMappingURL=bootstrap.min.css.map */
 
 .bg{
-  width: 100%;
-  height: 100%;
-  background: url('assets/Background.jpg') no-repeat center;
-  background-size: 1920 1080;
-  background-position: top center;
-}
-.bgLogin{
-width: 100%;
-height:100%;
-background: url('assets/LoginBackground.jpg') no-repeat center;
-background-size: 720 480;
-background-position: top center;
-background-size: cover;
-}
-.bgConfig{
-width: 100%;
-height: 100%;
-background: url('assets/backgroudConfig.jpg') no-repeat center;
-background-size: 480 800;
-background-size: cover;
-}
+    width: 100%;
+    height: 100%;
+    background: url('assets/Background.png') no-repeat center;
+    background-size: 1920 1080;
+    background-position: top center;
+    background-size: cover;
+  }
+  .bgLogin{
+    width: 100%;
+    height:100%;
+    background: url('assets/LoginBackground.jpg') no-repeat center;
+    background-size: 720 480;
+    background-position: top center;
+    background-size: cover;
+  }
