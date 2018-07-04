@@ -13,7 +13,7 @@ before_script:
   - npm install -g --silent @angular/cli
 
 script:
-  - ng build --prod --no-progress
+  - ng build --base-href=/wall-pi/ --prod --no-progress
 
 notifications:
   email:
