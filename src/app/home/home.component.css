@@ -21,9 +21,9 @@ tr:nth-child(odd) {
 h2  {
   font-family: Engravers MT;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 15px;
   width: 400px;
-  padding-left: 50px;
+  padding-left: 10px;
   line-height: 2;
   position: relative;
   color: #b30e0e;
@@ -31,10 +31,10 @@ h2  {
 h1{  
   font-family: Engravers MT;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 15px;
   width: 400px;
   margin-bottom: 5px;
-  padding-left: 100px;
+  padding-left: 10px;
   line-height: 2;
   position: relative;
   color: #b30e0e;
@@ -49,7 +49,7 @@ select {
   width: 250px;
 }
 button{
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-right: 5rem;
   margin-bottom: 1rem;
   color:white;
@@ -57,6 +57,7 @@ button{
 }
 table{
   width: 100%;
+  height:700px;
 }
 th {
   font-family: Lato-Bold;
@@ -66,7 +67,4 @@ th {
   padding: 5px;
   text-align: center;
   background-color: #b30e0e;
-}
-image{
-  padding-top: 10rem
 }
