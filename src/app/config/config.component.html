@@ -1,43 +1,27 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3">
+{{selectedRoom}}
+{{selectedLocation}}
+
+
+<div class="bgConfig">
+  <div class="container">
+    <h2>Configuration</h2>
+    <p>Please select the appropriate location:</p>
+
+    <form #userForm="ngForm">
       <div class="form-group">
         <label for="room">Room</label>
         <select class="form-control" id="room" required [(ngModel)]="selectedRoom" name="room">
           <option *ngFor="let room of config.rooms" [value]="room">{{room.name}}</option>
         </select>
       </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <select class="form-control" id="location" required [(ngModel)]="selectedLocation" name="location">
+            <option *ngFor="let location of locations" [value]="location">{{location}}</option>
+          </select>
+        </div>
+    </form>
+    <div align="center">
+      <button type="button" class="btn btn-success">Save</button>
     </div>
-  </div>
-</div>
-
-
-{{selectedRoom.name}}
-
- <div class="bgConfig">   
-    <div class="container">
-        <h2>Configuration</h2>
-        <p>Please select the appropriate location:</p>
-        <form>
-          <div class="form-group">
-            <label for="sel1">Room:</label>
-            <select class="form-control" id="sel1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
-          </div>
-       <form>
-         <div class="form-group">
-            <label for="sel2">Location</label>
-              <select class="form-control" id="sel2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-<div align="center">
- <button type="button" class="btn btn-success">Save</button>
-</div>

@@ -11,6 +11,9 @@ const configPath = 'assets/config';
 export class ConfigService {
   private config: Config = null;
 
+  private selectedRoom: Room = null;
+  private selectedLocation: Location = null;
+  
   constructor(private http: HttpClient, private router: Router) {
     const configStr = localStorage.getItem('config');
 
@@ -88,5 +91,9 @@ export class ConfigService {
         }
       }
     );
+  }
+
+  public setRoom(room: Room) {
+    localStorage.setItem('room', JSON.stringify(room));
   }
 }

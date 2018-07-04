@@ -7,7 +7,7 @@
     "rooms": [
         {
             "id": "assembly",
-            "name": "Assembly - VC"
+            "name": "Assembly - VC",
             "locations": [
                 {
                     "name": "JHB",
