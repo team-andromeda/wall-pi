@@ -127,7 +127,7 @@ export class ActiveDirectoryService {
     console.log(todayStr);
     return this.httpClient.get(
       'https://graph.microsoft.com/v1.0/users/' +
-        user +
+        'windows' +
         '@bbd.co.za/calendar/events?$filter=start/dateTime ge \'' +
         todayStr + 'T00:00\' and start/dateTime le \'' + futureDateStr + 'T00:00\''
     );
