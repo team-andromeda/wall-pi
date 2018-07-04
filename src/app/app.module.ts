@@ -9,9 +9,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { CallbackComponent } from './callback/callback.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { LoginComponent } from './login/login.component';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfigComponent } from './config/config.component';
 import { RefreshComponent } from './refresh/refresh.component';
 
@@ -20,7 +20,14 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CallbackComponent, LoginComponent, ConfigComponent, RefreshComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    CallbackComponent,
+    LoginComponent,
+    ConfigComponent,
+    RefreshComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

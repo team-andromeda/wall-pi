@@ -1,4 +1,6 @@
 .card {
+    margin-top: 24rem;
+    margin-bottom: 20rem;
     max-width: 20rem;
     background-color: rgb(241, 241, 241);
 }

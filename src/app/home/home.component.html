@@ -1,11 +1,12 @@
 <div class="bg">
-  <button type="button" id="loginButton" class="btn btn-success" (click)="logout()">Logout</button>
-  <button type="button" class="btn btn-secondary" routerLink="/configPage">Secondary</button>
+
 
   <img src="assets/BBDlogo.png" height=86 width=200 align=right>
-  <h2 id="ven">Venue: </h2>
+  
 
-  <table class="fullWidth">
+  <h2 id="ven">Venue</h2>
+  <h1 id="date">Date</h1> 
+  <table>
 
     <colgroup>
       <col width="1">
@@ -19,7 +20,12 @@
       <th>Time</th>
       <th>Event</th>
     </tr>
-
+    <tr>
+      <td>06:00</td>
+      <td id="six">-</td>
+      <td>06:30</td>
+      <td id="sixT">-</td>
+    </tr>
     <tr>
       <td>07:00</td>
       <td id="se">-</td>
@@ -71,9 +77,9 @@
 
     <tr>
       <td>14:00</td>
-      <td id="tw">-</td>
+      <td id="two">-</td>
       <td>14:30</td>
-      <td id="twT">-</td>
+      <td id="twoT">-</td>
     </tr>
 
     <tr>
@@ -105,4 +111,11 @@
     </tr>
 
   </table>
+
+  <div align="right">
+    <button type="button" id="loginButton" class="btn btn-secondary" (click)="logout()">Logout</button>
+    <button type="button" class="btn btn-secondary" routerLink="/configPage">Configure</button>
+  </div>
+
+
 </div>
