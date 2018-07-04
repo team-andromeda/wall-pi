@@ -3,5 +3,20 @@
         "url": "https://login.microsoftonline.com/bbd.co.za/oauth2/v2.0/authorize",
         "client_id": "4587cd34-d986-40bb-9588-a2a8a4f4a488",
         "redirect_uri": "https://team-andromeda.github.io/wall-pi/callback" 
-    }
+    },
+    "rooms": [
+        {
+            "id": "assembly",
+            "locations": [
+                {
+                    "name": "JHB",
+                    "locationString": "Assembly - VC"
+                },
+                {
+                    "name": "PTA",
+                    "locationString": "Assembly - VC PTA"
+                }
+            ]
+        }
+    ]
 }
