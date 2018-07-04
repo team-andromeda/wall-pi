@@ -11,11 +11,22 @@ import { switchMap } from 'rxjs/operators';
 export class CallbackComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
+  message = 'Authenticating...';
+
   ngOnInit() {
+    this.extractToken();
+  }
+
+  extractToken() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const rawJwt = this.getParam('access_token');
 
-      console.log(rawJwt);
+      if (rawJwt === null) {
+        console.error('JWT = null');
+        this.message = 'Error fetching access_token from URL. Please retry';
+        localStorage.removeItem('jwt');
+        return;
+      }
       console.log('Saving JWT');
       localStorage.setItem('jwt', rawJwt);
       this.router.navigate(['/']);
