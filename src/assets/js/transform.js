@@ -1,9 +1,11 @@
 export function run(dayBookings) {
 
+  console.log("Transform start");
   var dayBookings, startTime, EndTime;
 
   for (let t = 0; t < dayBookings.value.length; t++) {
-    if (dayBookings.value[t].location.uniqueId == 'Assembly - VC') {
+    console.log("A");
+    if (dayBookings.value[t].location.uniqueId !== 'lolwat') {
       var startTime = dayBookings.value[t].start.dateTime,
         EndTime,
         startValue,
@@ -244,5 +246,8 @@ export function run(dayBookings) {
         }
       }
     }
+  
   }
+
+  console.log("Transform end");
 }
