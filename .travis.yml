@@ -27,5 +27,5 @@ deploy:
   github-token: $GITHUB_TOKEN
   keep-history: true
   on:
-    branch: pages
+    branch: master
   local-dir: dist/wall-pi
