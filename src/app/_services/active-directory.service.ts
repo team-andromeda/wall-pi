@@ -124,6 +124,7 @@ export class ActiveDirectoryService {
     const todayStr = this.formatDate(today);
     const futureDateStr = this.formatDate(futureDate);
 
+    /* tslint:disable */
     return this.httpClient.get(
       'https://graph.microsoft.com/v1.0/users/' +
         user +
@@ -134,6 +135,7 @@ export class ActiveDirectoryService {
         "T00:00'"
     );
   }
+  /* tslint:enable */
 
   isLoggedIn(): boolean {
     const jwtRaw = window.localStorage.getItem(jwtKeyId);
