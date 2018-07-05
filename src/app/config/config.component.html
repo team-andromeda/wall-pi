@@ -1,8 +1,28 @@
+<div style="background-color:rgb(150,150,150)">
+<nav class="navbar sticky-top navbar-dark bg-dark" style="height:100%;color: rgb(50,50,60);">
+
+  <a class="navbar-brand" href="#">
+          <form class="form-inline">
+                  <img src="assets/favicon.png" alt="picture not found" width="45" height="45" class="d-inline-block align-top" alt="">
+                  <span class="navbar-text" style="font-size:120%;color:white;margin-left:10px">
+                         Configuration                           <!>
+
+
+                  </span>
+                  
+                    <input type="image" src="assets/save.png" (click)="save()" width="48" height="48" />
+                  
+                  
+          </form>
+  </a>
+
+
+
+</nav>
 <div class="container-fluid">
   <div class="row justify-content-md-center">
     <div class="col-md-4">
-      <h2>Configuration</h2>
-      <p>Please select the appropriate location:</p>
+      <h2>Please select the appropriate location:</h2>
 
       <form #userForm="ngForm">
         <div class="form-group">
@@ -19,9 +39,8 @@
                 </select>
               </div> -->
       </form>
-      <div align="center">
-        <button type="button" class="btn btn-success" (click)="save()">Save</button>
-      </div>
     </div>
   </div>
+  
+</div>
 </div>
