@@ -1,16 +1,14 @@
-export function run(dayBookings) {
+export function run(dayBookings, username, venue, cDay) {
 
   console.log("Transform start");
   var dayBookings, startTime, EndTime;
 
-
-  var venue = dayBookings.value[0].location.displayName;
-  var cDay = dayBookings.value[0].start.dateTime.substr(0,10);
+  console.log(dayBookings);
     
   document.getElementById("details").innerHTML ="     "+ venue +" | "+ cDay ;
 
   for (let t = 0; t < dayBookings.value.length; t++) {
-    console.log("A");
+
     if (dayBookings.value[t].location.uniqueId !== 'lolwat') {
       var startTime = dayBookings.value[t].start.dateTime,
         EndTime,
