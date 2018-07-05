@@ -1,42 +1,36 @@
-<div style="background:rgb(50,50,60);background-size:cover">
-<div style="background-color:rgb(50,50,60);height:1000">
+<div style="background:rgb(50,50,60);background-size:cover;height:100%;">
+    <div style="background-color:rgb(50,50,60);height:1000">
 
 
         <nav class="navbar sticky-top navbar-dark bg-dark" style="height:100%;color: rgb(50,50,60);">
 
-                <a class="navbar-brand" href="#">
-                        <form class="form-inline">
-                                <img src="assets/favicon.png" alt="picture not found" width="45" height="45" class="d-inline-block align-top" alt="">
-                                <span id="details" class="navbar-text" style="font-size:120%;color:white;margin-left:10px">
-                                        Navbar
+            <a class="navbar-brand" href="#">
+                <!-- Why is this a form? -->
+                <form class="form-inline">
+                    <img src="assets/favicon.png" alt="picture not found" width="45" height="45" class="d-inline-block align-top" alt="">
+                    <span id="details" class="navbar-text" style="font-size:20px ;color:white;margin-left:10px">
+                        Wall-Pi
+                    </span>
+                    <input type="image" src="assets/Config.png" routerLink="/configPage" width="48" height="48" />
 
-
-                                </span>
-                                <a class="nav-item nav-link" style="align-self: right;font-weight:bold;font-size: 120%;color:rgb(200,0,0)" (click)="logout()"
-                                        align="right">Logout</a>
-                                <input type="image" src="assets/Config.png" routerLink="/configPage" width="48" height="48" />
-
-
-                        </form>
-                </a>
-
-
+                </form>
+            </a>
 
         </nav>
 
-        <table id = "bookings"> 
-        
-                <colgroup>
-                        <col width="200">
-                        <col width="450">
-                        <col width="1">
-                        <col width="450">
-                </colgroup>
-                <tr>
-                        <th id = "verify" style="Color:white; font-size:130%;font-weight: bold ;background-color: rgb(200, 0, 0);height:20%;">Time </th>
-                        <th style="Color:white; font-size:130%;font-weight: bold ;background-color: rgb(200,0,0);height:20%">Event</th>
-                </tr>
+        <table id="bookings">
 
-         </table>       
-</div>
+            <colgroup>
+                <col width="200">
+                <col width="450">
+                <col width="1">
+                <col width="450">
+            </colgroup>
+            <tr>
+                <th id="verify" style="Color:white; font-size:130%;font-weight: bold ;background-color: rgb(200, 0, 0);height:20%;">Time </th>
+                <th style="Color:white; font-size:130%;font-weight: bold ;background-color: rgb(200,0,0);height:20%">Event</th>
+            </tr>
+
+        </table>
+    </div>
 </div>
