@@ -4,7 +4,7 @@
         "client_id": "4587cd34-d986-40bb-9588-a2a8a4f4a488",
         "redirect_uri": "https://team-andromeda.github.io/wall-pi/callback" 
     },
-    "rooms": [
+     "rooms": [
         {
             "id": "assembly",
             "name": "Assembly - VC",
@@ -12,10 +12,6 @@
                 {
                     "name": "JHB",
                     "locationString": "Assembly - VC"
-                },
-                {
-                    "name": "PTA",
-                    "locationString": "Assembly - VC PTA"
                 }
             ]
         },
@@ -28,6 +24,37 @@
                     "locationString": "collaborationcentrer"
                 }
             ]
+        },
+        {
+            "id": "windows",
+            "name": "Windows",
+            "locations": [
+                {
+                    "name": "PTA",
+                    "locationString": "TODO"
+                }
+            ]
+        },
+        {
+            "id": "iOS",
+            "name": "iOS",
+            "locations": [
+                {
+                    "name": "PTA",
+                    "locationstring": "TODO"
+                }
+            ]
+        },
+        {
+            "id": "Flex",
+            "name": "Flex",
+            "locations": [
+                {
+                "name": "JHB",
+                "locationString": "TODO"
+                }
+            ]
+        
         }
     ]
 }

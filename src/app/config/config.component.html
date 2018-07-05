@@ -1,4 +1,4 @@
-<div style="background-color:rgb(150,150,150)">
+<div class="bgConfig">
 <nav class="navbar sticky-top navbar-dark bg-dark" style="height:100%;color: rgb(50,50,60);">
 
   <a class="navbar-brand" href="#">
@@ -22,12 +22,11 @@
 <div class="container-fluid">
   <div class="row justify-content-md-center">
     <div class="col-md-4">
-      <h2>Please select the appropriate location:</h2>
+      <h2>Location:</h2>
 
       <form #userForm="ngForm">
         <div class="form-group">
-          <label for="room">Room</label>
-          <select class="form-control" id="room" required [(ngModel)]="selectedRoom" name="room">
+          <select class="form-control" id="room" required [(ngModel)]="selectedRoomId" name="room">
             <option *ngFor="let room of config.rooms" [value]="room.id">{{room.name}}</option>
           </select>
         </div>

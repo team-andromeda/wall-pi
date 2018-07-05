@@ -1,7 +1,11 @@
 select{
-margin-bottom: 570px
+margin-bottom: 615px
 }
 label{
     font-size: 18px;
     font-weight: bold;
+}
+h2{
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

@@ -1,15 +1,28 @@
-export function run(dayBookings, username, venue, cDay) {
+export function run(dayBookings, venue, cDay) {
 
   console.log("Transform start");
   var dayBookings, startTime, EndTime;
 
   console.log(dayBookings);
     
+  // Fix timezone, offset with +2
+  for (let i = 0; i < dayBookings.value.length; i++) {
+    let dateStart = new Date(dayBookings.value[i].start.dateTime);
+    dateStart.setTime( dateStart.getTime() + (1 * 60 * 10000 * 24)); // +4
+
+    let dateEnd = new Date(dayBookings.value[i].end.dateTime);
+    dateEnd.setTime( dateEnd.getTime() + (1 * 60 * 10000 * 24)); // +4
+
+    dayBookings.value[i].start.dateTime = dateStart.toISOString();
+    dayBookings.value[i].end.dateTime = dateEnd.toString();
+  }
+
   document.getElementById("details").innerHTML ="     "+ venue +" | "+ cDay ;
 
   for (let t = 0; t < dayBookings.value.length; t++) {
 
-    if (dayBookings.value[t].location.uniqueId !== 'lolwat') {
+    // TODO(egeldenhuys): Filter for different locations, replace FILTER.
+    if (dayBookings.value[t].location.uniqueId !== 'FILTER') {
       var startTime = dayBookings.value[t].start.dateTime,
         EndTime,
         startValue,
@@ -308,6 +321,7 @@ export function run(dayBookings, username, venue, cDay) {
     }
   
   }
+
 
   console.log("Transform end");
 }
