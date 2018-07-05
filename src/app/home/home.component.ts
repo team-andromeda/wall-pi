@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   data: any;
+  statusMessage = '';
 
   constructor(
     private activeDirService: ActiveDirectoryService,
@@ -28,18 +29,24 @@ export class HomeComponent implements OnInit {
   }
 
   fetchData() {
-    this.activeDirService
-      .getCalendar(this.configService.getRoomId())
-      .subscribe((res) => {
+    this.statusMessage = '(Fetching data...)';
+
+    this.activeDirService.getCalendar(this.configService.getRoomId()).subscribe(
+      (res) => {
         // this.data = res;
         // TODO(egeldenhuys): Send time and venue paramater
         console.log(res);
+        this.statusMessage = '';
         Transform.run(
           res,
           this.configService.getRoomName(),
           this.activeDirService.formatDate(new Date())
         );
-      });
+      },
+      (err) => {
+        this.statusMessage = '(Error fetching data)';
+      }
+    );
   }
 
   logout() {
