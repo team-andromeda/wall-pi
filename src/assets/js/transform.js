@@ -62,10 +62,7 @@ export function run(dayBookings, venue, cDay) {
  checker.sort();
  var things="",testing="";
   for (let n = 0; n < dayBookings.value.length; n++) {
-   // var startTime;
-   // startTime = dayBookings.value[n].start.dateTime;
-   // checker.push(startTime);
-   //document.getElementById("verify").innerHTML = check
+
     things=things+"||||"+checker[n];
   }
 
@@ -101,9 +98,7 @@ for (let v=0;v<checker.length;v++){
           booker = dayBookings.value[t].organizer.emailAddress.name;
           subject = dayBookings.value[t].subject;
 
-          //var duration = endValue - startValue;
-
-          //>>>>>>>>>>>>>
+ 
 
           var row = table.insertRow(v+ 1);
 
@@ -121,10 +116,7 @@ for (let v=0;v<checker.length;v++){
           cell2.style.border = "solid black 1px";
           cell2.style.height = "70px";
 
-          // if (time > EndTime) {
-
-          //   document.getElementById("verify").innerHTML = time+"|"+EndTime;
-          // }
+ 
           if (time >= startTime && time < EndTime) {
             cell1.style.backgroundColor = "rgb(100,0,0)";
             cell2.style.backgroundColor = "rgb(100,0,0)";
