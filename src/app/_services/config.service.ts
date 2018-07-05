@@ -96,17 +96,24 @@ export class ConfigService {
     );
   }
 
-  public setRoom(room: string) {
-    console.log('Saving room ' + room);
-    localStorage.setItem('room', room);
+  public setRoomName(room: string) {
+    localStorage.setItem('roomName', room);
+  }
+
+  public setRoomId(roomId: string) {
+    localStorage.setItem('roomId', roomId);
   }
 
   public setLocation(location: string) {
     localStorage.setItem('location', location);
   }
 
-  public getRoom(): string {
-    return localStorage.getItem('room');
+  public getRoomName(): string {
+    return localStorage.getItem('roomName');
+  }
+
+  public getRoomId(): string {
+    return localStorage.getItem('roomId');
   }
 
   public getLocation(): string {
