@@ -1,4 +1,4 @@
-export function run(dayBookings, username, venue, cDay) {
+export function run(dayBookings, venue, cDay) {
 
   console.log("Transform start");
   var dayBookings, startTime, EndTime;

@@ -18,12 +18,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.activeDirService
-      .getCalendar(this.configService.getRoom())
+      .getCalendar(this.configService.getRoomId())
       .subscribe((res) => {
         // this.data = res;
-
+        // TODO(egeldenhuys): Send time and venue paramater
         console.log(res);
-        Transform.run(res);
+        Transform.run(res, this.configService.getRoomName(), this.activeDirService.formatDate(new Date()));
       });
   }
 

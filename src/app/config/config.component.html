@@ -7,7 +7,7 @@
       <form #userForm="ngForm">
         <div class="form-group">
           <label for="room">Room</label>
-          <select class="form-control" id="room" required [(ngModel)]="selectedRoom" name="room">
+          <select class="form-control" id="room" required [(ngModel)]="selectedRoomId" name="room">
             <option *ngFor="let room of config.rooms" [value]="room.id">{{room.name}}</option>
           </select>
         </div>
