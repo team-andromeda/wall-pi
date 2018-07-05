@@ -368,5 +368,6 @@ export function run(dayBookings, venue, cDay) {
     }
   }
 
-  console.log('Transform end');
+
+  console.log("Transform end");
 }
