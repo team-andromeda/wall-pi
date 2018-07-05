@@ -14,7 +14,7 @@ export function run(dayBookings, venue, cDay) {
     dateEnd.setTime( dateEnd.getTime() + (1 * 60 * 10000 * 24)); // +4
 
     dayBookings.value[i].start.dateTime = dateStart.toISOString();
-    dayBookings.value[i].end.dateTime = dateEnd.toString();
+    dayBookings.value[i].end.dateTime = dateEnd.toISOString();
   }
 
   document.getElementById("details").innerHTML ="     "+ venue +" | "+ cDay ;

@@ -17,10 +17,10 @@ export class ActiveDirectoryService {
 
   // TODO(egeldenhuys): Implement nonce and state params for security
   authOptions: AuthOptions = {
-    url: 'https://login.microsoftonline.com/bbd.co.za/oauth2/v2.0/authorize',
-    client_id: '476ba8bc-a7e1-4c89-ab55-c9f4c147e5e4',
+    url: 'DEPRECATED',
+    client_id: 'DEPRECATED',
     response_type: 'id_token+token',
-    redirect_uri: 'http://127.0.0.1:4200/callback',
+    redirect_uri: 'DEPRECATED',
     scope:
       'openid ' +
       'https://graph.microsoft.com/Calendars.Read ' +
@@ -42,6 +42,8 @@ export class ActiveDirectoryService {
    * Redirect the browser to Microsoft for authentication
    */
   authenticateRedirect() {
+    console.log('Auth redirect triggered');
+
     if (this.config === null) {
       // This could be after a refresh
       this.config = this.configService.getConfig();
@@ -135,6 +137,17 @@ export class ActiveDirectoryService {
     );
   }
 
+  isTokenExpired(): boolean {
+    const jwtRaw = window.localStorage.getItem(jwtKeyId);
+    const helper = new JwtHelperService();
+
+    if (jwtRaw === null) {
+      return false;
+    } else {
+      return helper.isTokenExpired(jwtRaw);
+    }
+  }
+
   isLoggedIn(): boolean {
     const jwtRaw = window.localStorage.getItem(jwtKeyId);
     const helper = new JwtHelperService();
@@ -148,8 +161,7 @@ export class ActiveDirectoryService {
     } else {
       if (helper.isTokenExpired(jwtRaw)) {
         console.error('JWT has expired.');
-
-        localStorage.removeItem(jwtKeyId);
+        // localStorage.removeItem(jwtKeyId);
         // this.router.navigate(['login']);
         // this.activeDirService.authenticateRedirect();
         return false;
