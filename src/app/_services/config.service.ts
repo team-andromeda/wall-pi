@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Config } from '../_models/config.model';
+import { Config, Room, Location } from '../_models/config.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,9 @@ const configPath = 'assets/config';
 export class ConfigService {
   private config: Config = null;
 
+  // private selectedRoom: Room = null;
+  // private selectedLocation: Location = null;
+
   constructor(private http: HttpClient, private router: Router) {
     const configStr = localStorage.getItem('config');
 
@@ -21,6 +24,9 @@ export class ConfigService {
     }
 
     this.fetchConfig();
+
+    // this.selectedRoom = JSON.parse(localStorage.getItem('room'));
+    // this.selectedLocation = JSON.parse(localStorage.getItem('location'));
   }
 
   /**
@@ -88,5 +94,29 @@ export class ConfigService {
         }
       }
     );
+  }
+
+  public setRoomName(room: string) {
+    localStorage.setItem('roomName', room);
+  }
+
+  public setRoomId(roomId: string) {
+    localStorage.setItem('roomId', roomId);
+  }
+
+  public setLocation(location: string) {
+    localStorage.setItem('location', location);
+  }
+
+  public getRoomName(): string {
+    return localStorage.getItem('roomName');
+  }
+
+  public getRoomId(): string {
+    return localStorage.getItem('roomId');
+  }
+
+  public getLocation(): string {
+    return localStorage.getItem('location');
   }
 }

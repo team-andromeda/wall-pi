@@ -1,3 +1,27 @@
-<p>
-  config works!
-</p>
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <h2>Configuration</h2>
+      <p>Please select the appropriate location:</p>
+
+      <form #userForm="ngForm">
+        <div class="form-group">
+          <label for="room">Room</label>
+          <select class="form-control" id="room" required [(ngModel)]="selectedRoomId" name="room">
+            <option *ngFor="let room of config.rooms" [value]="room.id">{{room.name}}</option>
+          </select>
+        </div>
+
+        <!-- <div class="form-group">
+                <label for="location">Location</label>
+                <select class="form-control" id="location" required [(ngModel)]="selectedLocation" name="location">
+                  <option *ngFor="let location of locations" [value]="location">{{location}}</option>
+                </select>
+              </div> -->
+      </form>
+      <div align="center">
+        <button type="button" class="btn btn-success" (click)="save()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
