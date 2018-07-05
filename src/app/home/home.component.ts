@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActiveDirectoryService } from '../_services/active-directory.service';
 import * as Transform from '../../assets/js/transform.js';
+import { ConfigService } from 'src/app/_services/config.service';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +11,20 @@ import * as Transform from '../../assets/js/transform.js';
 export class HomeComponent implements OnInit {
   data: any;
 
-  constructor(private activeDirService: ActiveDirectoryService) {}
+  constructor(
+    private activeDirService: ActiveDirectoryService,
+    private configService: ConfigService
+  ) {}
 
   ngOnInit() {
-    this.activeDirService.getCalendar('assembly').subscribe((res) => {
-      // this.data = res;
+    this.activeDirService
+      .getCalendar(this.configService.getRoom())
+      .subscribe((res) => {
+        // this.data = res;
 
-      console.log(res);
-      Transform.run(res);
-    });
+        console.log(res);
+        Transform.run(res);
+      });
   }
 
   logout() {

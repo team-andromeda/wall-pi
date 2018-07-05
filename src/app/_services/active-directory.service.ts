@@ -114,22 +114,24 @@ export class ActiveDirectoryService {
     return yyyyStr + '-' + mmStr + '-' + ddStr;
   }
 
-
   getCalendar(user: string) {
+    console.log('fetching data for calendar id ' + user);
     // Source: https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
 
     const today = new Date();
-    const futureDate = new Date(today.getTime() + (1000 * 60 * 60 * 24)); // + 1 day in ms
+    const futureDate = new Date(today.getTime() + 1000 * 60 * 60 * 24); // + 1 day in ms
 
     const todayStr = this.formatDate(today);
     const futureDateStr = this.formatDate(futureDate);
 
-    console.log(todayStr);
     return this.httpClient.get(
       'https://graph.microsoft.com/v1.0/users/' +
-        'windows' +
-        '@bbd.co.za/calendar/events?$filter=start/dateTime ge \'' +
-        todayStr + 'T00:00\' and start/dateTime le \'' + futureDateStr + 'T00:00\''
+        user +
+        "@bbd.co.za/calendar/events?$filter=start/dateTime ge '" +
+        todayStr +
+        "T00:00' and start/dateTime le '" +
+        futureDateStr +
+        "T00:00'"
     );
   }
 
