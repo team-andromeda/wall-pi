@@ -22,9 +22,16 @@ export class HomeComponent implements OnInit {
       console.log('Refreshing...');
       this.fetchData();
     }, 30 * 1000);
+
+    window.setTimeout(() => {
+      location.reload();
+    }, 60 * 1000);
   }
 
   ngOnInit() {
+    if (this.configService.getRoomId() === null) {
+      this.router.navigate(['config']);
+    }
     this.fetchData();
   }
 
@@ -34,7 +41,7 @@ export class HomeComponent implements OnInit {
     this.activeDirService.getCalendar(this.configService.getRoomId()).subscribe(
       (res) => {
         // this.data = res;
-        // TODO(egeldenhuys): Send time and venue paramater
+        // TODO(egeldenhuys): Send time and venue parameter
         console.log(res);
         this.statusMessage = '';
         Transform.run(
