@@ -1,4 +1,4 @@
-<div class="bg " style ="background-color:rgb(50,50,60)"> 
+<div style ="background-color:rgb(50,50,60)"> 
 
 
 <nav class="navbar sticky-top navbar-dark bg-dark" style ="height:100%;color: rgb(50,50,60);" >
@@ -11,9 +11,9 @@
 
 
                         </span>
-                                      
-                                                                                                        <a class="nav-item nav-link" href="#" style="align-self: right;font-weight:bold;font-size: 120%;color:rgb(200,0,0)" (click)="logout()"
-                                                                                                                align="right">Logout</a>
+                                        <a class="nav-item nav-link" style = "align-self: right;font-weight:bold;font-size: 120%;color:rgb(200,0,0)" (click)="logout()" align ="right">Logout</a>
+                                        <input type="image" src="assets/Config.png" routerLink="/configPage" width="48" height="48"/>
+                                
    
                         </form>
         </a>
@@ -34,7 +34,6 @@
     <tr>
       <th style = "Color:white; font-size:130%;font-weight: bold ;background-color: rgb(200, 0, 0)">Time </th>
       <th style = "Color:white; font-size:130%;font-weight: bold ;background-color: rgb(200,0,0)">Event</th>
->
     </tr>
     <tr>
       <td>06:00</td>
@@ -188,16 +187,5 @@
         <td>18:30</td>
         <td id="siT">Free Slot</td>
     </tr>
-  </table>
-
-  <div align="centre">
-        <button type="button" class="btn btn-secondary" routerLink="/configPage">configure
-        
-        </button>
-    
+  </table>   
   </div>
-       
-  
-
-
-</div>
