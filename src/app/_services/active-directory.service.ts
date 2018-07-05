@@ -146,6 +146,13 @@ export class ActiveDirectoryService {
 
       return false;
     } else {
+      try {
+        helper.decodeToken(jwtRaw);
+      } catch (err) {
+        console.error('Invalid JWT');
+        localStorage.clearItem(jwtKeyId);
+        return false; // Still causes error somewhere.
+      }
       if (helper.isTokenExpired(jwtRaw)) {
         console.error('JWT has expired.');
 

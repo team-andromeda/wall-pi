@@ -12,25 +12,22 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   data: any;
   statusMessage = '';
+  timeout = null;
 
   constructor(
     private activeDirService: ActiveDirectoryService,
     private configService: ConfigService,
     private router: Router
   ) {
-    window.setInterval(() => {
-      console.log('Refreshing...');
-      this.fetchData();
-    }, 30 * 1000);
-
-    window.setTimeout(() => {
+    this.timeout = window.setTimeout(() => {
       location.reload();
-    }, 60 * 1000);
+    }, 30 * 1000);
   }
 
   ngOnInit() {
     if (this.configService.getRoomId() === null) {
-      this.router.navigate(['config']);
+      clearTimeout(this.timeout);
+      this.router.navigate(['configPage']);
     }
     this.fetchData();
   }
