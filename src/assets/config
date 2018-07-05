@@ -12,10 +12,6 @@
                 {
                     "name": "JHB",
                     "locationString": "Assembly - VC"
-                },
-                {
-                    "name": "PTA",
-                    "locationString": "Assembly - VC PTA"
                 }
             ]
         },
@@ -28,6 +24,37 @@
                     "locationString": "collaborationcentrer"
                 }
             ]
+        },
+        {
+            "id": "windows",
+            "name": "Windows",
+            "locations": [
+                {
+                    "name": "PTA",
+                    "locationString": "TODO"
+                }
+            ]
+        },
+        {
+            "id": "iOS",
+            "name": "iOS",
+            "locations": [
+                {
+                    "name": "PTA",
+                    "locationstring": "TODO"
+                }
+            ]
+        },
+        {
+            "id": "Flex",
+            "name": "Flex",
+            "locations": [
+                {
+                "name": "JHB",
+                "locationString": "TODO"
+                }
+            ]
+        
         }
     ]
 }
