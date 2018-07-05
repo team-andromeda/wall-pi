@@ -50,15 +50,9 @@ export function run(dayBookings, venue, cDay) {
         //document.getElementById("verify").innerHTML = endTime + "||" + time;
 
        checker.push(startTime);
-      }else{
-        if (endMin>min){
-          checker.push(startTime);
-        }
-      }
-    
+  
 
   }
- //document.getElementById("verify").innerHTML = endTime+"||"+time;
  checker.sort();
  var things="",testing="";
   for (let n = 0; n < dayBookings.value.length; n++) {
@@ -66,7 +60,6 @@ export function run(dayBookings, venue, cDay) {
     things=things+"||||"+checker[n];
   }
 
-   //document.getElementById("verify").innerHTML = things;
 
 for (let v=0;v<checker.length;v++){
         
@@ -116,16 +109,57 @@ for (let v=0;v<checker.length;v++){
           cell2.style.border = "solid black 1px";
           cell2.style.height = "70px";
 
- 
-          if (time >= startTime && time < EndTime) {
-            cell1.style.backgroundColor = "rgb(100,0,0)";
-            cell2.style.backgroundColor = "rgb(100,0,0)";
+          var et = dayBookings.value[t].end.dateTime;// end time
+          for (let m = 0; m < 15; m++) {
+            et = et.substr(1);
           }
 
-        //>>>>>>>>>>>>>>>>
+          et = et.substr(0, 6);
+         var eh = et.substr(0, 3);// end hour
+         var em = et.substr(4, 6);//end minute
+
+          var st = dayBookings.value[t].end.dateTime;// start time
+          for (let m = 0; m < 15; m++) {
+            sh = et.substr(1);
+          }
+
+         st  = st.substr(0, 6);
+         var sh  = startTime.substr(0, 2);// start hour
+         var sm = startTime.substr(3, 4);//start minute
+         
+          if (eh >= hour && hour>=sh ) {
+          
+            if (eh>hour){ 
+              cell1.style.backgroundColor = "rgb(100,0,0)";
+              cell1.style.height="100px";
+              cell1.style.fontSize="35px";
+              
+              cell2.style.backgroundColor = "rgb(100,0,0)";
+              cell2.style.height="100px";
+              cell2.style.fontSize = "35px";
+            }else{if (/*em>=min &&*/ min>=sm){
+                cell1.style.backgroundColor = "rgb(100,0,0)";
+      
+               cell2.style.backgroundColor = "rgb(100,0,0)";
+                }
+          }
+            
+          } 
+
         }
       }
     }
+  }
+
+  if (checker.length==0){
+    var body = document.getElementById("check");
+        body.innerHTML="NO UPCOMING BOOKINGS TODAY";
+        body.style.height="300px";
+        body.style.backgroundColor="rgb(200,200,200)";
+        body.style.fontSize="60px";
+        body.style.color="rgb(200,0,0)";
+        table.style.display="none";
+        
   }
   console.log("Transform end");
 }
