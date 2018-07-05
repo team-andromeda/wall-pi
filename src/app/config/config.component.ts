@@ -19,6 +19,7 @@ export class ConfigComponent implements OnInit {
   constructor(private configService: ConfigService, private router: Router) {}
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.config = this.configService.getConfig();
     this.selectedLocation = this.configService.getLocation();
     this.selectedRoom = this.configService.getRoom();
