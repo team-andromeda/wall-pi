@@ -322,5 +322,6 @@ export function run(dayBookings, venue, cDay) {
   
   }
 
+
   console.log("Transform end");
 }
