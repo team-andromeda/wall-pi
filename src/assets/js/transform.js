@@ -50,9 +50,11 @@ export function run(dayBookings, venue, cDay) {
         //document.getElementById("verify").innerHTML = endTime + "||" + time;
 
        checker.push(startTime);
-  
+      }
+    
 
   }
+ //document.getElementById("verify").innerHTML = endTime+"||"+time;
  checker.sort();
  var things="",testing="";
   for (let n = 0; n < dayBookings.value.length; n++) {
@@ -60,6 +62,7 @@ export function run(dayBookings, venue, cDay) {
     things=things+"||||"+checker[n];
   }
 
+   //document.getElementById("verify").innerHTML = things;
 
 for (let v=0;v<checker.length;v++){
         
