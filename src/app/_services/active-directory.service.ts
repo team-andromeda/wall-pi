@@ -17,10 +17,10 @@ export class ActiveDirectoryService {
 
   // TODO(egeldenhuys): Implement nonce and state params for security
   authOptions: AuthOptions = {
-    url: 'https://login.microsoftonline.com/bbd.co.za/oauth2/v2.0/authorize',
-    client_id: '476ba8bc-a7e1-4c89-ab55-c9f4c147e5e4',
+    url: 'DEPRECATED',
+    client_id: 'DEPRECATED',
     response_type: 'id_token+token',
-    redirect_uri: 'http://127.0.0.1:4200/callback',
+    redirect_uri: 'DEPRECATED',
     scope:
       'openid ' +
       'https://graph.microsoft.com/Calendars.Read ' +
@@ -124,16 +124,20 @@ export class ActiveDirectoryService {
     const todayStr = this.formatDate(today);
     const futureDateStr = this.formatDate(futureDate);
 
+    // TODO:...
+
+    /* tslint:disable */
     return this.httpClient.get(
       'https://graph.microsoft.com/v1.0/users/' +
         user +
         "@bbd.co.za/calendar/events?$filter=start/dateTime ge '" +
-        todayStr +
+        '2018-07-05' +
         "T00:00' and start/dateTime le '" +
-        futureDateStr +
+        '2018-07-06' +
         "T00:00'"
     );
   }
+  /* tslint:enable */
 
   isLoggedIn(): boolean {
     const jwtRaw = window.localStorage.getItem(jwtKeyId);
