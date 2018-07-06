@@ -50,7 +50,7 @@ export function run(dayBookings, venue, cDay) {
   }
   var time = hour+":"+min;
 
-  var checker=[];
+  var checker=[],othercheck=[];
 
 
   for (let n = 0; n < dayBookings.value.length; n++){
@@ -72,6 +72,7 @@ export function run(dayBookings, venue, cDay) {
         //document.getElementById("verify").innerHTML = endTime + "||" + time;
 
        checker.push(startTime);
+     //  othercheck.push(endTime);
       }
 
       console.log(endMin);
@@ -80,13 +81,14 @@ export function run(dayBookings, venue, cDay) {
   }
  //document.getElementById("verify").innerHTML = endTime+"||"+time;
  checker.sort();
- var things="",testing="";
+ var things="";
+ //var testing="";
   for (let n = 0; n < dayBookings.value.length; n++) {
-
+   //   testing=testing+"|||"+otherchecker[n];
     things=things+"||||"+checker[n];
   }
 
-   //document.getElementById("verify").innerHTML = things;
+ // document.getElementById("verify").innerHTML = othercheck;
 
 for (let v=0;v<checker.length;v++){
         
@@ -97,7 +99,7 @@ for (let v=0;v<checker.length;v++){
         var startTime = dayBookings.value[t].start.dateTime;
 
         if (startTime==checker[v]){
-          EndTime,
+        var  EndTime,
             // startValue,
             // endValue;
             EndTime = dayBookings.value[t].end.dateTime;
@@ -108,13 +110,13 @@ for (let v=0;v<checker.length;v++){
 
           startTime = startTime.substr(0, 5);
 
-          for (let m = 0; m < 15; m++) {
+          for (let m = 0; m < 11; m++) {
             EndTime = EndTime.substr(1);
           }
 
-          EndTime = EndTime.substr(0, 6);
+          EndTime = EndTime.substr(0, 5);
           // FIX:
-          EndTime = endTime;
+          //EndTime = endTime;
           // document.getElementById("verify").innerHTML = EndTime;
           var booker, subject;
           booker = dayBookings.value[t].organizer.emailAddress.name;
@@ -139,6 +141,7 @@ for (let v=0;v<checker.length;v++){
           cell2.style.height = "70px";
 
           var et = dayBookings.value[t].end.dateTime;// end time
+          
           for (let m = 0; m < 15; m++) {
             et = et.substr(1);
           }

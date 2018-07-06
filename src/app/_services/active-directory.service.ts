@@ -131,9 +131,9 @@ export class ActiveDirectoryService {
       'https://graph.microsoft.com/v1.0/users/' +
         user +
         "@bbd.co.za/calendar/events?$filter=start/dateTime ge '" +
-        '2018-07-05' +
+        todayStr +
         "T00:00' and start/dateTime le '" +
-        '2018-07-06' +
+        futureDateStr +
         "T00:00'"
     );
   }
