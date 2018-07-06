@@ -132,8 +132,10 @@ export class ActiveDirectoryService {
         user +
         "@bbd.co.za/calendar/events?$filter=start/dateTime ge '" +
         todayStr +
+        //'2018-07-05'+
         "T00:00' and start/dateTime le '" +
         futureDateStr +
+        //'2018-07-06'+
         "T00:00'"
     );
   }
