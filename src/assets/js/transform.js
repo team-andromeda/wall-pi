@@ -22,10 +22,10 @@ export function run(dayBookings, venue, cDay) {
     console.log('END = ' + date2.toISOString());
 
     let dateStart = new Date(dayBookings.value[i].start.dateTime);
-    dateStart.setTime( dateStart.getTime() + (1 * 60 * 10000 * 24)); // +4
+    dateStart.setTime(dateStart.getTime() + (1 * 60 * 10000 * 24)); // +4
 
     let dateEnd = new Date(dayBookings.value[i].end.dateTime);
-    dateEnd.setTime( dateEnd.getTime() + (1 * 60 * 10000 * 24)); // +4
+    dateEnd.setTime(dateEnd.getTime() + (1 * 60 * 10000 * 24) ); // +4
 
     
     dayBookings.value[i].start.dateTime = dateStart.toISOString();
@@ -169,18 +169,14 @@ for (let v=0;v<checker.length;v++){
 
          console.log('SM:' + sm + '/' + min)
           if (eh >= hour && hour>=sh ) {
-            if (eh>hour){ 
+                {if (em>=min && min>=sm){
               cell1.style.backgroundColor = "rgb(100,0,0)";
-              cell1.style.height="100px";
-              cell1.style.fontSize="35px";
-              
+              cell1.style.height = "100px";
+              cell1.style.fontSize = "30px";
+              document.getElementById("verify").innerHTML = em;
               cell2.style.backgroundColor = "rgb(100,0,0)";
-              cell2.style.height="100px";
-              cell2.style.fontSize = "35px";
-            }else{if (/*em>=min &&*/ min>=sm){
-                cell1.style.backgroundColor = "rgb(100,0,0)";
-      
-               cell2.style.backgroundColor = "rgb(100,0,0)";
+              cell2.style.height = "100px";
+              cell2.style.fontSize = "30px";
                 }
           }
             
@@ -202,4 +198,9 @@ for (let v=0;v<checker.length;v++){
         
   }
   console.log("Transform end");
+    var timer= document.getElementById("time");
+    timer.innerHTML=time;
+    timer.style.fontSize="50px";
+    timer.style.fontStyle='Arial';
+    timer.style.color="rgb(200,0,0)";
 }
