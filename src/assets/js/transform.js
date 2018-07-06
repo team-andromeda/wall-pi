@@ -1,20 +1,39 @@
 export function run(dayBookings, venue, cDay) {
 
+  console.log(dayBookings);
   console.log("Transform start");
   var dayBookings, startTime, EndTime;
 
   console.log(dayBookings);
     
+  var moment = require('moment');
+
   // Fix timezone, offset with +2
   for (let i = 0; i < dayBookings.value.length; i++) {
+    // let dateStartTmp = Date(dayBookings.value[i].start.dateTime);
+    // console.log('START = ' + moment(dateStartTmp.toString()).format());
+
+    let date = new Date(dayBookings.value[i].start.dateTime);
+    console.log('REAL = ' + dayBookings.value[i].start.dateTime);
+    console.log('START = ' + date.toISOString());
+
+    let date2 = new Date(dayBookings.value[i].end.dateTime);
+    console.log('REAL = ' + dayBookings.value[i].end.dateTime.toString());
+    console.log('END = ' + date2.toISOString());
+
     let dateStart = new Date(dayBookings.value[i].start.dateTime);
     dateStart.setTime( dateStart.getTime() + (1 * 60 * 10000 * 24)); // +4
 
     let dateEnd = new Date(dayBookings.value[i].end.dateTime);
     dateEnd.setTime( dateEnd.getTime() + (1 * 60 * 10000 * 24)); // +4
 
+    
     dayBookings.value[i].start.dateTime = dateStart.toISOString();
-    dayBookings.value[i].end.dateTime = dateEnd.toString();
+    dayBookings.value[i].end.dateTime = dateEnd.toISOString();
+
+    console.log("Adjusted start = " + dayBookings.value[i].start.dateTime);
+    console.log("Adjusted End = " + dayBookings.value[i].end.dateTime);
+
   }
 
   document.getElementById("details").innerHTML ="     "+ venue +" | "+ cDay ;
@@ -31,38 +50,45 @@ export function run(dayBookings, venue, cDay) {
   }
   var time = hour+":"+min;
 
-  var checker=[];
+  var checker=[],othercheck=[];
 
 
   for (let n = 0; n < dayBookings.value.length; n++){
     var startTime,endMin,endHour;
       startTime=dayBookings.value[n].start.dateTime;
       var endTime=dayBookings.value[n].end.dateTime;
-    for (let m = 0; m < 15; m++) {
+    for (let m = 0; m < 11; m++) {
       endTime = endTime.substr(1);
+      console.log(endTime);
     }
 
-    endTime = endTime.substr(0, 6);
-    endHour=endTime.substr(0,3);
-    endMin=endTime.substr(4,6);
+    endTime = endTime.substr(0, 5);
+    console.log(endTime);
+    endHour=endTime.substr(0,2);
+    console.log(endHour);
+    endMin=endTime.substr(3,6);
       if (endHour>hour){
        
         //document.getElementById("verify").innerHTML = endTime + "||" + time;
 
        checker.push(startTime);
+     //  othercheck.push(endTime);
       }
+
+      console.log(endMin);
     
 
   }
  //document.getElementById("verify").innerHTML = endTime+"||"+time;
  checker.sort();
- var things="",testing="";
+ var things="";
+ //var testing="";
   for (let n = 0; n < dayBookings.value.length; n++) {
-
+   //   testing=testing+"|||"+otherchecker[n];
     things=things+"||||"+checker[n];
   }
 
-   //document.getElementById("verify").innerHTML = things;
+ // document.getElementById("verify").innerHTML = othercheck;
 
 for (let v=0;v<checker.length;v++){
         
@@ -73,7 +99,7 @@ for (let v=0;v<checker.length;v++){
         var startTime = dayBookings.value[t].start.dateTime;
 
         if (startTime==checker[v]){
-          EndTime,
+        var  EndTime,
             // startValue,
             // endValue;
             EndTime = dayBookings.value[t].end.dateTime;
@@ -84,11 +110,13 @@ for (let v=0;v<checker.length;v++){
 
           startTime = startTime.substr(0, 5);
 
-          for (let m = 0; m < 15; m++) {
+          for (let m = 0; m < 11; m++) {
             EndTime = EndTime.substr(1);
           }
 
-          EndTime = EndTime.substr(0, 6);
+          EndTime = EndTime.substr(0, 5);
+          // FIX:
+          //EndTime = endTime;
           // document.getElementById("verify").innerHTML = EndTime;
           var booker, subject;
           booker = dayBookings.value[t].organizer.emailAddress.name;
@@ -113,6 +141,7 @@ for (let v=0;v<checker.length;v++){
           cell2.style.height = "70px";
 
           var et = dayBookings.value[t].end.dateTime;// end time
+          
           for (let m = 0; m < 15; m++) {
             et = et.substr(1);
           }
@@ -130,8 +159,16 @@ for (let v=0;v<checker.length;v++){
          var sh  = startTime.substr(0, 2);// start hour
          var sm = startTime.substr(3, 4);//start minute
          
+         // FIX
+         eh = endHour;
+         em = endMin;
+        
+
+         console.log('EH: ' + eh + '/' + hour);
+         console.log('SH: ' + sh + '/' + hour);
+
+         console.log('SM:' + sm + '/' + min)
           if (eh >= hour && hour>=sh ) {
-          
             if (eh>hour){ 
               cell1.style.backgroundColor = "rgb(100,0,0)";
               cell1.style.height="100px";
