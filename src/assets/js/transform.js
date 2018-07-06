@@ -105,11 +105,11 @@ for (let v=0;v<checker.length;v++){
 
           cell1.innerHTML = startTime + " - " + EndTime;
           cell1.style.color = "white";
-          cell1.style.border = "solid black 1px";
+        //  cell1.style.border = "solid black 1px";
           cell1.style.height = "70px";
           cell2.innerHTML = subject;
           cell2.style.color = "white";
-          cell2.style.border = "solid black 1px";
+         // cell2.style.border = "solid black 1px";
           cell2.style.height = "70px";
 
           var et = dayBookings.value[t].end.dateTime;// end time
