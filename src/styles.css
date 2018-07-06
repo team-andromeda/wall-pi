@@ -17,7 +17,7 @@
   .bgConfig{
     width: 100%;
     height:100%;
-    background: url('assets/backgroundConfig.jpg') no-repeat center;
+    background: url('assets/backgroundConfig.png') no-repeat center;
     background-size: 480 800;
     background-position: top center;
     background-size: cover;
