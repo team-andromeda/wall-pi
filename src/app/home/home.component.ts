@@ -39,18 +39,26 @@ export class HomeComponent implements OnInit {
       (res) => {
         // this.data = res;
         // TODO(egeldenhuys): Send time and venue parameter
-        console.log(res);
+        // console.log(res);
+        this.transformData(res);
         this.statusMessage = '';
-        Transform.run(
-          res,
-          this.configService.getRoomName(),
-          this.activeDirService.formatDate(new Date())
-        );
+
+        // Transform.run(
+        //   res,
+        //   this.configService.getRoomName(),
+        //   this.activeDirService.formatDate(new Date())
+        // );
       },
       (err) => {
         this.statusMessage = '(Error fetching data)';
       }
     );
+  }
+
+  transformData(data: any) {
+    console.log(data);
+
+    
   }
 
   logout() {
